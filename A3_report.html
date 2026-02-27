@@ -419,9 +419,13 @@
 			<h2>Final Visualization Design</h2>
 
 			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
+				<img src="image.png" alt="Final calendar-inspired seasonal COVID-19 visualization." />
 				<figcaption>
-					BRIEF CAPTION HERE.
+					Figure: Daily U.S. COVID-19 cases (7-day average) from 2020–2022, arranged as small multiples by year
+					with a shared vertical scale. Months progress left to right (January–December) to preserve a familiar
+					calendar structure. Line position encodes case magnitude, while color intensity redundantly
+					highlights higher values. Annotations mark major winter peaks, culminating in the unprecedented
+					Omicron surge in early 2022.
 				</figcaption>
 			</figure>
 
@@ -431,13 +435,43 @@
 			<h2>Final Writeup</h2>
 
 			<p>
-				DESCRIBE YOUR RATIONALE TO JUSTIFY THE DECISIONS FOR YOUR FINAL DESIGN.
-				WHAT ARE YOU TRYING TO CONVEY, AND HOW DOES YOUR DESIGN FACILITATE THIS?
+				I designed this final visualization to make one specific message easy to see and hard to misread: U.S.
+				COVID-19 cases exhibit recurring seasonal surges, culminating in a striking peak in early 2022. In my
+				sketches I kept returning to the tension between seasonality (which the original spiral conveyed
+				effectively) and comparability (which it made difficult). I ultimately leaned into a calendar-like mental
+				model: months are arranged left-to-right (Jan–Dec) and years are stacked vertically as small multiples,
+				so seasonal comparisons become a simple scan down the same x-position rather than a
+				cognitively demanding trace around a spiral. I also kept the data transformation aligned with how people
+				actually consume COVID time-series: I used a 7-day average as in the original plot to maintain the broader wave structure. Within
+				each yearly panel, I annotate a small number of moments that matter for the story (late 2020, early 2021,
+				early 2022) and include exact values so the viewer isn’t forced into vague, impressionistic comparisons.
+				That choice was intentional: rather than labeling everything, I used annotation as narrative
+				scaffolding -- enough to establish the core takeaway and let the viewer verify it visually, without turning
+				the figure into a paragraph.
 			</p>
 
 			<p>
-				REFLECT ON HOW YOUR FINAL DESIGN DOES OR DOES NOT ADDRESS YOUR ORIGINAL CRITIQUE.
-				WHAT TENSIONS OR TRADEOFFS DID YOU ENCOUNTER? WHAT DID NOT WORK OUT AS ANTICIPATED?
+				In terms of encodings, I deliberately prioritized position on a common scale as the primary quantitative
+				channel by using a line (7-day average cases) with a shared y-axis across years, because graphical
+				perception research consistently has consistently found that aligned position supports more accurate magnitude judgments
+				than encodings like area or band thickness. This was a direct response to what bothered me most about
+				the original spiral: cases were communicated through thickness around a curved path, which makes it easy
+				to “feel” differences while making it hard to measure them, and invites the classic area/width illusion. My redesign avoids that by making the vertical axis do the
+				quantitative work. I then layered color intensity as a secondary, redundant cue, less for precise reading
+				than for pre-attentive emphasis, so the most intense periods (especially early 2022) pop immediately
+				without requiring viewers to trace every fluctuation. In other words, I tried to combine fast
+				recognition via color with accurate reading via position. I also supplemented the visual elements with a descriptive title and a caption to help the viewer understand the plot, lowering the cognitive burden and allowing viewers to gauge the key takeaways without having to read the accompanying article. 
+			</p> 
+			<p>
+				At the same time, I also made tradeoffs that I’m aware of: keeping
+				a shared scale means the extreme Omicron peak compresses earlier variation, and faceting by year
+				sacrifices some of the spiral’s emotional, “never-ending” metaphor as well as the continuity of the time series. In a sense, this is the design
+				tension I learned most clearly through critique-by-redesign: expressive forms can communicate how a
+				period felt, but they often do so by spending perceptual accuracy. My final chart chooses
+				interpretability and comparability over metaphor, while still preserving the seasonal logic that made
+				the spiral compelling in the first place. Ultimately, this assignment demonstrated that effective
+				visualization is not about finding a perfect form, but about making principled decisions about what to
+				emphasize, what to sacrifice, and why.
 			</p>
 		</section>
 	</main>
