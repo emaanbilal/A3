@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+		</h1>
+
+		<p>
+			<strong>Emaan Bilal Khan</strong> — <em>emaan@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="" />
+			</figure>
+
+			<p>
+				<strong>Insights about the data/visualization:</strong>
+			</p>
+
+			<ul>
+				<li>The visualization is trying to show new U.S. COVID-19 cases over time using a spiral plot where the
+					angle encodes day-of-year (months around the circle), with the spiral moving outward from 2020 to
+					2021 and finally 2022 in a clockwise direction. The band’s width or thickness represents the 7-day
+					average number of confirmed cases. </li>
+				<li>There is a clear pattern of large winter surges, with the biggest swell occurring in the
+					late-2021/early-2022 region (the outermost ring near January 2022 becomes dramatically thicker than
+					earlier parts of the spiral). Mid-2021 shows a noticeable rise (August to October) before falling
+					again, possibly associated with a new virus variant. </li>
+				<li>Given the radial encoding and since the months align by angle, one can discern a seasonal pattern,
+					whereby similar times of year appear to have similar surges or expanded widths, (especially winter),
+					even though the exact sizes are hard to compare precisely. </li>
+				<li>Such a comparison emphasizes that case counts are higher now (the outermost circle, representing
+					2021 to 2022) than earlier in the pandemic, given that the outer spiral segments seem thicker than
+					inner ones, which supports a “spiraling” narrative. </li>
+			</ul>
+
+			<p>
+				<strong>Design Critique:</strong>
+			</p>
+
+			<p>
+				What stands out about this plot is its ability to communicate the cyclical, never-ending nature of the
+				pandemic – a perception many of us felt, and could resonate with at the time. Encoding time as a spiral
+				creates an immediate metaphor, that we’re stuck in repeating waves, and because months are placed around
+				a circle, it elicits a sense of periodicity in the year-by-year evolution of case counts, encouraging
+				readers to look for seasonality (eg: comparing winter to winter by looking at similar angles) and making
+				effective use of screen real estate. The design is also attention-grabbing since it is unusual, unlike
+				the canonical COVID-19 line graph, therefore likely to be widely discussed by a general audience, which
+				matters when the goal is to support an opinion piece rather than serve as a precise policy dashboard.
+				The saturated red band also leverages pre-attentive attention: your eye is pulled immediately to the
+				thickest regions, making the major winter surge at the outer edge hard to miss. In that sense, the chart
+				is expressive in its storytelling: it makes viewers feel the “endless cycle” and suggests escalation as
+				the spiral expands outward.
+			</p>
+			<p>
+				Where it struggles is in effectiveness and interpretability. The most important variable (cases) is
+				encoded mainly as band width around a curved path, rather than through position on a common aligned
+				scale, making it hard to read accurately and vulnerable to line width illusion since readers may attend
+				to the shaded area rather than the intended width, and the outward spiral can give later periods more
+				visual dominance (VanderPlas and Hofmann, 2015). This is corroborated by Stevens’ Power Law which
+				predicts systematic misestimation when people judge size/area as opposed to metrics like length
+				(Stevens, 1957). The spiral also introduces a structural distortion: equal spans of time occupy longer
+				physical distance in later rings, which can bias later waves to look shallower and earlier increases to
+				look steeper, complicating comparisons of slopes and wave onset across years. This phenomenon can be
+				understood by Weber’s Law which suggests that smaller differences in thickness become harder to notice
+				as the overall thickness grows (Weber, 1846), which can cause meaningful variation in high-case periods
+				to visually compress. On top of that, the chart offers limited scaffolding for a reader, asking them to
+				do more cognitive work than a conventional time-series: months aren’t all labeled, it’s unclear at a
+				glance where to begin/end, and there isn’t a clear y-axis-style set of reference rings (beyond the small
+				“150K cases” key) and only a few month labels, making it difficult to estimate values or make confident
+				comparisons across years. A small set of changes, like complete month labeling, clearer radial reference
+				rings (e.g., every 50K/100K), and a stronger visual cue for the start point, would preserve the
+				expressive “spiral” metaphor while improving perceptual accuracy and lowering the effort required to
+				decode the most important comparisons.
+			</p>
+
+			<div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+				<figure style="flex: 0 0 45%; max-width: 45%;">
+					<img src="A3/critique2.png"
+						alt="The 'Steep vs. Shallow' geometric bias in the COVID-19 spiral chart."
+						style="width: 100%; max-height: 260px; object-fit: contain;" />
+					<figcaption>
+						<strong>The "Steep vs. Shallow" Geometric Bias.</strong> This figure demonstrates how the
+						outward expansion of the spiral creates a false sense of scale. Although both the top and bottom
+						segments represent the exact same duration of time and an identical pattern of case growth, the
+						top segment (moving further outward) appears significantly shallower than the bottom. Because
+						the spiral maps the same time span to a longer physical distance as it expands, the "stretching"
+						of the x-axis (time) flattens the appearance of later waves, making them look less urgent than
+						earlier, "steeper" surges.
+					</figcaption>
+				</figure>
+
+				<figure style="flex: 0 0 45%; max-width: 45%;">
+					<img src="A3/critique1.png"
+						alt="Comparison of total area versus case volume in different COVID-19 waves."
+						style="width: 100%; max-height: 260px; object-fit: contain;" />
+					<figcaption>
+						<strong>Total Area vs. Case Volume.</strong> This comparison highlights how the chart’s design
+						fails to accurately represent the volume of cases. When comparing the 4-month period (Nov
+						2020–Feb 2021) to the 3-month period (Aug 2021–Oct 2021), the visual surface area of the red
+						bands is roughly the same, giving them a "similar impression" to the viewer. In reality, the
+						first period represents a far higher total number of cases. This illustrates how the lack of a
+						fixed, linear scale leads to a perceptual "illusion" where significantly different data points
+						look equivalent.
+					</figcaption>
+				</figure>
+			</div>
+
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+			<figure>
+				<img src="s1.png" alt="Sketch 1 — refined spiral with single-sided width and reference rings." />
+				<figcaption>
+					<strong>Sketch 1 — Refining the Spiral (Single-Sided Width + Reference Rings).</strong> A refinement
+					of the original spiral: width encoded in one direction, clearer month labels, and radial reference
+					rings to improve readability.
+				</figcaption>
+			</figure>
+
+			<h3>Sketch 1 Rationale</h3>
+
+			<p>
+				<strong>Motivation.</strong> Rather than abandoning the spiral immediately, I wanted to first test
+				whether the original form could be salvaged through perceptual corrections. Since my critique focused on
+				band width illusion, lack of scaffolding, and unclear orientation, this sketch addresses those concerns
+				directly while preserving the expressive “endless cycle” metaphor.
+			</p>
+
+			<p>
+				<strong>Design decisions.</strong>
+			</p>
+			<ul>
+				<li>Encoded cases using line width in only one direction (instead of symmetric expansion) to reduce
+					area-based misperception.</li>
+				<li>Added reference rings (e.g., 100K increments) to restore some form of positional markers for scaffolding.</li>
+				<li>Included clear month labeling and a January anchor to reduce cognitive overhead and provide a clear starting point.</li>
+				<li>Moved the encoding slightly closer to length/position-based perception, which lecture materials
+					(Munzner, Stevens’ Power Law) emphasize as more accurate than area or volume judgments.</li>
+			</ul>
+
+			<p>
+				<strong>What I hoped it would communicate.</strong> That the spiral can still evoke seasonality and
+				escalation, but without requiring the viewer to infer magnitude purely from thick red area. I wanted to
+				retain the narrative strength of the original plot while increasing its interpretability.
+			</p>
+
+			<p>
+				<strong>What worked.</strong>
+			</p>
+			<ul>
+				<li>The seasonal clustering remains immediately visible.</li>
+				<li>Reference rings meaningfully reduce guesswork to estimate the number of cases.</li>
+				<li>The single-sided encoding mitigates some of the “inflated area” bias predicted by Stevens’ Law.</li>
+			</ul>
+
+			<p>
+				<strong>What didn’t.</strong>
+			</p>
+			<ul>
+				<li>Even with these changes, magnitude is still being read along a curved path rather than on a common
+					aligned scale.</li>
+				<li>Weber’s Law suggests that as the spiral expands outward, thickness differences in later waves are
+					still harder to discriminate.</li>
+				<li>It still asks viewers to think of months circularly — a mental model that is not as intuitive as a linear timeline.</li>
+			</ul>
+
+			<p>
+				<strong>What I wanted to explore next.</strong> A circular design that removes width entirely and
+				instead encodes magnitude through a channel that may require less perceptual effort.
+			</p>
+
+			<figure>
+				<img src="s1.2.png"
+					alt="Sketch 2 — concentric rings with fixed width and depth/color encoding on a 5-point scale." />
+				<figcaption>
+					<strong>Sketch 2 — Concentric Rings with Depth/Color Encoding.</strong> Fixed-width rings where
+					magnitude is encoded through depth/color intensity on a discrete 5-point scale rather than
+					thickness.
+				</figcaption>
+			</figure>
+
+			<h3>Sketch 2 Rationale</h3>
+
+			<p>
+				<strong>Motivation.</strong> Building on Sketch 1, I wanted to preserve periodicity but eliminate the
+				width illusion entirely. Instead of thickness, I encoded case magnitude through depth (color intensity)
+				on a discrete 5-point scale.
+			</p>
+
+			<p>
+				<strong>Design decisions.</strong>
+			</p>
+			<ul>
+				<li>Used a fixed-width spiral (2020, 2021, 2022) rather than a line spiral to remove outward geometric
+					bias.</li>
+				<li>Encoded magnitude using a 5-point intensity scale to provide granularity and reduce continuous
+					gradient ambiguity.</li>
+				<li>Clearly labeled months and years to reduce orientation effort.</li>
+				<li>Leant on perceptual principles from lecture: while color is not the most precise magnitude channel,
+					it supports strong pre-attentive detection, making seasonal hotspots immediately visible without
+					complex tracing.</li>
+			</ul>
+
+			<p>
+				<strong>What I hoped it would communicate.</strong> A clean winter-to-winter comparison: January 2022
+				should visibly “glow” darker than January 2021, allowing quick seasonal comparison with less geometric
+				distortion.
+			</p>
+
+			<p>
+				<strong>What worked.</strong>
+			</p>
+			<ul>
+				<li>Seasonality becomes extremely clear.</li>
+				<li>Fixed width removes slope distortion from spiral expansion.</li>
+				<li>The 5-point scale simplifies magnitude discrimination, potentially aligning better with Weber’s idea
+					of just-noticeable differences.</li>
+			</ul>
+
+			<p>
+				<strong>What didn’t.</strong>
+			</p>
+			<ul>
+				<li>Color intensity sacrifices numerical precision compared to positional encoding.</li>
+				<li>Viewers must reference the legend to decode exact magnitude.</li>
+				<li>Subtle differences within the same bin disappear.</li>
+			</ul>
+
+			<p>
+				<strong>What I wanted to explore next.</strong> A return to positional encoding via a line plot (a
+				stronger magnitude channel) while preserving shared seasonal alignment.</p>
+
+			<figure>
+				<img src="s2.png" alt="Sketch 3 — overlaid seasonal line chart with shared axes." />
+				<figcaption>
+					<strong>Sketch 3 — Overlaid Seasonal Line Chart.</strong> Overlaid line chart with shared x- and
+					y-axes to prioritize comparability.
+				</figcaption>
+			</figure>
+
+			<h3>Sketch 3 Rationale</h3>
+
+			<p>
+				<strong>Motivation.</strong> This sketch intentionally abandons the circular metaphor in favor of a more
+				intuitive time-series form. Since months are more naturally conceptualized linearly, this reduces
+				cognitive friction and aligns with canonical COVID-19 plots.
+			</p>
+
+			<p>
+				<strong>Design decisions.</strong>
+			</p>
+			<ul>
+				<li>Used a shared x-axis (months) and y-axis (cases) to enable direct positional comparison.</li>
+				<li>Overlaid multiple years on a common baseline to make seasonal differences immediately perceptible.
+				</li>
+				<li>Added annotations to guide attention to key surges.</li>
+				<li>Relied on position on a common scale as the most accurate magnitude channel.</li>
+			</ul>
+
+			<p>
+				<strong>What I hoped it would communicate.</strong> That winter peaks are consistently dominant and that
+				2022 represents an extreme outlier, without requiring viewers to interpret curved geometry.</p>
+
+			<p>
+				<strong>What worked.</strong>
+			</p>
+			<ul>
+				<li>Comparisons are fast and perceptual rather than cognitive.</li>
+				<li>Seasonal alignment remains visible.</li>
+				<li>Magnitude estimation is significantly easier.</li>
+			</ul>
+
+			<p>
+				<strong>What didn’t.</strong>
+			</p>
+			<ul>
+				<li>Overlapping lines create clutter and make trajectories difficult to follow.</li>
+				<li>The expressive “endless cycle” metaphor is lost.</li>
+				<li>Time continuity across years becomes less narratively compelling.</li>
+			</ul>
+
+			<p>
+				<strong>What I wanted to explore next.</strong> A format that preserves comparability but reduces
+				overlap and filtering interference.</p>
+
+			<figure>
+				<img src="s2.2.png" alt="Sketch 4 — stacked seasonal line chart with shared seasonal axis." />
+				<figcaption>
+					<strong>Sketch 4 — Stacked Seasonal Line Chart.</strong> Stacked chart with shared seasonal axis;
+					magnitude encoded redundantly via line and shading.
+				</figcaption>
+			</figure>
+
+			<h3>Sketch 4 Rationale</h3>
+
+			<p>
+				<strong>Motivation.</strong> This iteration responds directly to the overlap issue in Sketch 3. By
+				stacking the years vertically, each trajectory becomes easier to follow while preserving the same month
+				structure.
+			</p>
+
+			<p>
+				<strong>Design decisions.</strong>
+			</p>
+			<ul>
+				<li>Used a faceted plot with shared axes to preserve comparability.</li>
+				<li>Applied redundant encoding: both line height and shading represent magnitude, reinforcing perception
+					(in line with the lecture concept of redundancy gain).</li>
+				<li>Maintained consistent scaling across panels.</li>
+			</ul>
+
+			<p>
+				<strong>What I hoped it would communicate.</strong> Clear individual year trajectories, while still
+				enabling seasonal comparison across aligned months.
+			</p>
+
+			<p>
+				<strong>What worked.</strong>
+			</p>
+			<ul>
+				<li>Much easier to trace individual waves.</li>
+				<li>Redundancy strengthens magnitude perception.</li>
+				<li>Seasonal patterns remain aligned across panels.</li>
+			</ul>
+
+			<p>
+				<strong>What didn’t.</strong>
+			</p>
+			<ul>
+				<li>Continuity across years is less immediate.</li>
+				<li>Requires viewers to scan between panels to compare peaks.</li>
+				<li>Less visually dramatic than the spiral.</li>
+			</ul>
+
+			<p>
+				<strong>What I wanted to explore next.</strong> A format that mirrors how we intuitively structure
+				months — more like a calendar than a chart.</p>
+
+			<figure>
+				<img src="s3.png"
+					alt="Sketch 5 — calendar-inspired heatmap with line overlay showing seasonal COVID-19 cases." />
+				<figcaption>
+					<strong>Sketch 5 — Calendar-Inspired Heatmap with Line Overlay.</strong> Calendar-inspired layout:
+					uniform monthly blocks with color intensity and line overlay to encode magnitude and preserve
+					seasonality.
+				</figcaption>
+			</figure>
+
+			<h3>Sketch 5 Rationale</h3>
+
+			<p>
+				<strong>Motivation.</strong> Reflecting on the mental model issue, I considered how people naturally
+				conceptualize months — as calendar units, not points on a circle. Inspired by GitHub-style heatmaps, I
+				explored a grid structure (sketched imperfectly, but sufficient to convey the idea).
+			</p>
+
+			<p>
+				<strong>Design decisions.</strong>
+			</p>
+			<ul>
+				<li>Used uniform monthly blocks arranged sequentially in a calendar-like grid.</li>
+				<li>Encoded magnitude via darkness of each block, while a line overlay shows the trajectory of cases
+					through time.</li>
+				<li>Kept months aligned across years so that, for example, all Januaries share the same column for easy
+					cross-year comparison.</li>
+				<li>Marked the current position to maintain temporal orientation.</li>
+				<li>Employed redundant encoding (color + line height) to reinforce magnitude perception.</li>
+			</ul>
+
+			<p>
+				<strong>What I hoped it would communicate.</strong> A quick, intuitive seasonal read: winter blocks
+				should appear darker, and cross-year comparison should feel straightforward because months occupy
+				identical spatial positions.
+			</p>
+
+			<p>
+				<strong>What worked.</strong>
+			</p>
+			<ul>
+				<li>Leverages a familiar schema (calendar grid) that reduces cognitive effort.</li>
+				<li>Eliminates geometric distortion entirely.</li>
+				<li>Supports strong seasonal comparison without overlapping marks.</li>
+			</ul>
+
+			<p>
+				<strong>What didn’t.</strong>
+			</p>
+			<ul>
+				<li>Exact magnitude still depends partly on color decoding, which can be hard to estimate precisely.</li>
+				<li>If overdesigned, block boundaries and grid lines could compete visually with the continuity of the
+					overlaid line.</li>
+			</ul>
+
+			<p>
+				<strong>What I would explore next.</strong> Adding subtle numeric annotations (for example, peak values
+				within each month or labels for extreme weeks) to balance pattern recognition with precision, and
+				testing a more granular but perceptually uniform color scale (e.g., carefully chosen multi-step
+				sequential palette) to better separate moderate from very high case periods without overwhelming the
+				viewer.</p>
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+
+			<figure>
+				<img src="IMAGE_FILENAME" alt="" />
+				<figcaption>
+					BRIEF CAPTION HERE.
+				</figcaption>
+			</figure>
+
+		</section>
+
+		<section>
+			<h2>Final Writeup</h2>
+
+			<p>
+				DESCRIBE YOUR RATIONALE TO JUSTIFY THE DECISIONS FOR YOUR FINAL DESIGN.
+				WHAT ARE YOU TRYING TO CONVEY, AND HOW DOES YOUR DESIGN FACILITATE THIS?
+			</p>
+
+			<p>
+				REFLECT ON HOW YOUR FINAL DESIGN DOES OR DOES NOT ADDRESS YOUR ORIGINAL CRITIQUE.
+				WHAT TENSIONS OR TRADEOFFS DID YOU ENCOUNTER? WHAT DID NOT WORK OUT AS ANTICIPATED?
+			</p>
+		</section>
+	</main>
+</body>
+
+</html>
